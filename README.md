@@ -11,8 +11,24 @@ This repo contains the code and results of the AAAI 2020 paper:
 <img width='100%' src='https://user-images.githubusercontent.com/4397546/69003615-582b2180-0940-11ea-9faa-2f2ae6b1d5ba.png'/>
 
 <i>We plot a result of our model with the input shown in the yellow square. From two zoomed regions, our method removes the shadow and reduces the ghost successfully.</i>
+## Table of Contents
+---
+- [Table of Contents](#table-of-contents)
+- [Known Issues](#known-issues)
+- [Introduction](#introduction)
+- [Sample Comparsion](#sample-comparsion)
+- [Resources](#resources)
+- [Other Resources](#other-resources)
+- [Setup](#setup)
+- [Demo](#demo)
+- [Training](#training)
+- [Test](#test)
+- [Acknowledgements](#acknowledgements)
+- [Citation](#citation)
+- [Contact](#contact)
+- [Related Works](#related-works)
 
-## Known Issues
+## **Known Issues**
 [#4](https://github.com/vinthony/ghost-free-shadow-removal/issues/4) inconsistency between the code and Figure.2, Thanks [@naoto0804](https://github.com/naoto0804)
 
 ## **Introduction**
@@ -57,15 +73,24 @@ This repo contains the code and results of the AAAI 2020 paper:
 
 
 ## **Setup**
-Creating the conda environments following [here](https://github.com/ceciliavision/perceptual-reflection-removal#conda-environment).
+[Install conda](https://www.digitalocean.com/community/tutorials/how-to-install-the-anaconda-python-distribution-on-ubuntu-20-04-pt)
+
+Creating the conda environments following:
+```
+conda env create -f env.yml
+conda activate ghost-free-shadow-removal
+```
+* Download the pre-trained model from above. **[SRD+](https://uofmacau-my.sharepoint.com/:u:/g/personal/yb87432_umac_mo/EYLodBImcw1AlfQZsh71HuYB_TalzP0uTBEtS-9atEdc_Q?e=DODEKk)** is recommended.
+
+* Download pretrained-vgg19 from [MatConvNet](http://www.vlfeat.org/matconvnet/pretrained/#downloading-the-pre-trained-models).
+
+* Uncompress pre-trained models into 'Models/' as shown in the folders.
 
 ## **Demo**
 
 #### 1. Local ipynb demo
-1. download the pre-trained model from above. **SRD+** is recommended.
-2. download pretrained-vgg19 from [MatConvNet](http://www.vlfeat.org/matconvnet/pretrained/#downloading-the-pre-trained-models).
-3. Uncompress pre-trained models into 'Models/' as shown in the folders.
-4. Starting a [jupyter](https://jupyter.org/) server and run the demo code following the instructions in `demo.ipynb`
+
+Starting a [jupyter](https://jupyter.org/) server and run the demo code following the instructions in `demo.ipynb`
 
 It has been tested both in MacOS 10.15 and Ubuntu 18.04 LTS. Both CPU and GPU are supported (But running on CPU is quite slow).
 
@@ -79,6 +104,10 @@ an online **shadow synthesis** demo is hosted in Google CoLab by [this url](http
 
 ```
 python demo.py --model PATH_TO_PRETRAINED_MODEL --vgg_19_path PATH_TO_VGG19 --input_dir SAMPLES_DIR --result_dir RESULTS_DIR
+```
+Or, use default directories:
+```
+python demo.py --model ./Models/srdplus-pretrained --vgg_19_path ./Models/imagenet-vgg-verydeep-19.mat --input_dir ./Samples/ --result_dir ./Results
 ```
 
 ## **Training**

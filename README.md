@@ -95,7 +95,11 @@ After the end of works:
 ```
 conda deactivate
 ```
+Or
 
+```
+pip install -r requirements.txt
+```
 ## **Demo**
 
 #### 1. Local ipynb demo
